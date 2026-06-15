@@ -13,10 +13,12 @@ def calculate_rpn(notation):
             data.push(int(symbol))
         else:
             if data.size() < 2:
-                raise ValueError("Недостаточно элементов для выполнения операции")
+                raise RuntimeError("Недостаточно операндов для выполнения операции")
             x = data.pop()
             y = data.pop()
             data.push(operations[symbol](x, y))
+    if data.size() > 1:
+        raise RuntimeError("Недостаточно операторов для завершения подсчета")
     return data.pop()
 
 text = input()
