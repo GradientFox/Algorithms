@@ -1,4 +1,4 @@
-from stack import Stack
+from stack.stack import Stack
 
 def calculate_rpn(notation):
     operations = {
